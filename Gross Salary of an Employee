@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+float grosssal(float salary,float* hra,float* dra)
+{
+  float gross;
+  *hra=(*hra/100)*salary;
+  *dra=(*dra/100)*salary;
+  gross = (salary + *dra + *hra);
+
+  return gross;
+}
+
+int  main()
+{
+    float salary,hra,dra,total;
+    printf("\nEnter the basic salary, dearness allowance, house rent allowance :-\n");
+    scanf("%f %f %f",&salary,&hra,&dra);
+    total = grosssal(salary,&hra,&dra);
+
+    printf("\nBasic Salary :-%0.2f",salary);
+    printf("\nHRA :-%0.2f",hra);
+    printf("\nDRA :-%0.2f",dra);
+    printf("\nGross Salary :-%f",total);
+    return 0;
+}
