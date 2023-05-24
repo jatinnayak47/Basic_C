@@ -1,0 +1,23 @@
+#include<math.h>
+#include<stdio.h>
+
+double calarea(int* S1,int* S2,int* S3)
+{
+    double area;
+    double s;
+
+    s=(*S1+*S2+*S3)/2;
+    area = sqrt(s*(s-*S1)*(s-*S2)*(s-*S3));
+    return area;
+}
+int main()
+{
+ int s1,s2,s3;
+ double area;
+ printf("Enter three side of triangle :- ");
+ scanf("%d %d %d",&s1,&s2,&s3);
+ area = calarea(&s1,&s2,&s3);
+ printf("Area of triangle is %0.2lf",area);
+
+ return 0; 
+}
