@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int interestcal()
+{
+    float amount,rate,time,interest;
+    printf("Enter the rate : ");
+    scanf("%f",&rate);
+    printf("Enter the time : ");
+    scanf("%f",&time);
+    printf("Enter the amount : ");
+    scanf("%f",&amount);
+
+    interest = amount*rate*time;
+
+    return interest;
+}
+
+int main()
+{
+    float total_interest;
+    total_interest = interestcal();
+    printf("Amount :- %0.3f",total_interest);
+
+    return 0; 
+}
