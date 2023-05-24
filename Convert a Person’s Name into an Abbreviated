@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<string.h>
+
+void nameabbrev()
+{
+ char name[20];
+ printf("Enter your name : ");
+ scanf("%s",name);
+ char abbname[5];
+ for(int i=0;i<=(strlen(name)/2);i++)
+ {
+    abbname[i]=name[i];
+ }
+ printf("%s",abbname);
+}
+int main()
+{
+    nameabbrev();
+    return 0;
+}
