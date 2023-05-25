@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+void factorial(int num)
+{
+    int fact=1;
+    int i;
+    for(i = 1 ; i<=num;i++)
+    {
+
+        fact = fact*i;
+        
+    }
+    printf("\nFactorial of %d is %d",num,fact);
+}
+
+int main()
+{
+    int num;
+    printf("\nEnter number to find its factorial :-");
+    scanf("%d",&num);
+    factorial(num);
+
+    return 0;
+}
