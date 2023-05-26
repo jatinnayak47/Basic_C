@@ -1,0 +1,84 @@
+#include<stdio.h>
+
+int dobvalidate(int dd,int mm,int yyyy)
+{
+    if(yyyy>0 && yyyy<999999)
+    {
+        if((dd>=1 && dd<=31) && mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12)
+        {
+        return 1;
+        }
+        else if((dd >= 1 && dd <= 30) && mm == 4 || mm==6 || mm==9 || mm==11)
+            {
+             return 1;
+            }
+        else if((dd>=1 && dd<=29) && mm==2)
+            {
+                return 1;
+            }
+            else
+            {
+                printf("\nDate is invalid.");
+            }        
+    }
+}
+int currdatevalidate(int cd,int cm,int cy)
+{
+    if(cy>0 && cy<999999)
+    {
+        if((cd>=1 && cd<=31) && cm == 1 || cm == 3 || cm == 5 || cm == 7 || cm == 8 || cm == 10 || cm == 12)
+        {
+         return 2;
+        }
+        else if((cd >= 1 && cd <= 30) && cm == 4 || cm==6 || cm==9 || cm==11)
+            {
+                return 2;
+            }
+        else if((cd>=1 && cd<=29) && cm==2)
+            {
+                return 2;
+            }
+            else
+            {
+                printf("\nDate is invalid.");
+            }        
+    }
+}
+
+void eligiblitychecker(int dd,int mm,int yyyy,int cd,int cm,int cy)
+{
+    int rd,rm,ry;
+    rd = cd - dd;
+    rm = cm - mm;
+    ry = cy - yyyy;
+
+    if(ry >=18)
+    {
+        printf("\nCandidate is eligible for voting.");
+    }
+    else 
+    {
+        printf("\nNot eligible for voting.");
+    }
+}
+
+int main()
+{
+    int dd,mm,yy,cm,cd,cy,temp1,temp2;
+    printf("\nEnter Todays Date :- ");
+    scanf("%d %d %d",&cd,&cm,&cy);
+    printf("\nEnter DOB :-");
+    scanf("%d %d %d",&dd,&mm,&yy);
+    temp1 = dobvalidate(dd,mm,yy);
+    temp2 = currdatevalidate(cd,cm,cy);
+    if(temp1 == 1 && temp2 == 2)
+    {
+        eligiblitychecker(dd,mm,yy,cd,cm,cy);
+    }
+    else
+    {
+        printf("\nInvalid Entery.");
+    }
+
+    return 0;
+}
