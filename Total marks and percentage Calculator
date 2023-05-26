@@ -1,0 +1,90 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct student
+{
+ char name[20];
+ int roll_no;
+ int section;
+ int marks[5];
+ int totalmrk;
+ float percentage;
+};
+
+void markscal(int no);
+void marksdisplay(int num);
+ 
+ struct student* students;
+
+void inputdetails(int num){
+
+    int no = num;
+    students = (struct student*)malloc(sizeof(struct student)*num);
+    printf("\nEnter Details Of Students :-");
+    for(int i = 0;i<num;i++)
+    {
+        printf("\nEnter Details Of Student %d",i+1);
+        printf("\nEnter Name :-");
+        scanf("%s",&students[i].name);
+        printf("\nEnter Roll No :-");
+        scanf("%d",&students[i].roll_no);
+        printf("\nEnter Section :-");
+        scanf("%d",&students[i].section);
+        for(int j = 0;j<5;j++)
+        {
+            printf("\nEnter Marks Of Subject %d",j+1);
+            scanf("%d",&students[i].marks[j]);
+        }
+    }
+    printf("\nThanks For Filling The Data.");
+}
+void markscal(int no)
+{
+    int num = no  ; 
+    for(int i=0;i<no;i++)
+    {
+        students[i].totalmrk = 0;
+        for(int j = 0;j < 5;j++)
+        {
+          students[i].totalmrk+=students[i].marks[j];
+        }
+        students[i].percentage = students[i].totalmrk/5;
+    }
+    
+}
+void marksdisplay(int num)
+{
+    for(int i = 0; i < num; i++)
+    {
+        printf("\nName :-%s",students[i].name);
+        printf("\nRoll NO :-%d",students[i].roll_no);
+        printf("\nSection :-%d",students[i].section);
+        for(int j = 0 ;j < 5; j++)
+        {
+            printf("\nMarks of Subject %d :-%d",i+1,students[i].marks[j]);
+        }
+        printf("\nTotal Marks Of Student :-%d",students[i].totalmrk);
+        printf("\nAggr. Percentage :-%0.2f",students[i].percentage);
+    }
+}
+
+int main()
+{
+    int num,opt;
+    printf("\nEnter number of student :-");
+    scanf("%d",&num);
+    while(1)
+    {
+     printf("Select :-\n1.TO Input Details \n2.To Calculate Marks \n3.To Display Marks\n");
+     scanf("%d",&opt);
+     if(opt == 1)
+     inputdetails(num);
+     else if(opt == 2)
+     markscal(num);
+     else if(opt == 3)
+     marksdisplay(num);
+    }
+
+  return 0;
+}
