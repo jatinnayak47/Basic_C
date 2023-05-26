@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+void c_to_f(float temp)
+{
+    float convertedtemp;
+    convertedtemp = (temp*1.8)+32;
+    printf("Temperature :-> %f F",convertedtemp);
+}
+void f_to_c(float temp)
+{
+    float convertedtemp;
+    convertedtemp = ((temp-32)*5)/9;
+    printf("Temperature :-> %f C",convertedtemp);
+}
+
+int main()
+{
+    float temp;
+    int opt;
+    while(1)
+    {
+     printf("\nEnter temperature :-");
+     scanf("%f",&temp);
+     printf("\nSelect operation :-\n1. Celsius To Fahrenheit.\n2. Fahrenheit To Celsius.\n");
+     scanf("%d",&opt);
+     if(opt == 1)
+     {
+         c_to_f(temp);
+     }
+     else if(opt == 2)
+     {
+        f_to_c(temp);
+     }
+     else{
+        printf("\nInvalid Input.");
+     }
+    }
+     return 0;
+}
